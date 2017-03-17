@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>Grapevine interactive</title>
+<!-- Bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style type="text/css">
+* {
+	-webkit-border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+	border-radius: 0 !important;
+}
+.btn-color {
+	background: #55298a;
+	color: #ffffff;
+	border: none;
+	height: 50px;
+	width: 200px;
+	font-size: 16px !important;
+}
+.form-control {
+	height: 50px;
+}
+.input-group {
+	margin-bottom: 0px !important;
+}
+</style>
+</head>
+<body>
+<script>
+function validateForm() {
+	var errorBorder = document.getElementById("control_EMAIL");
+	var error = document.getElementById("error");
+	var success = document.getElementById("success");
+    var x = document.forms["widget"]["email"].value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+		success.setAttribute("style","display: none;");
+		error.setAttribute("style","display: block; color: #b94a48;");
+		errorBorder.setAttribute("style","border:2px solid #b94a48;");
+		errorBorder.setAttribute("placeholder","Please enter a valid email address");
+        return false;
+	} else { 
+	error.setAttribute("style","display: none;");
+	success.setAttribute("style","display: block; color: #469c3f;");
+	errorBorder.setAttribute("style","border:2px solid #469c3f;");
+	}
+}
+</script>
+
+<form method="post" action="#.html" name="widget" onsubmit="return validateForm()">
+  <!-- Email -->
+  <div class="form-group" id="container_COLUMN24">
+    <input class="form-control" required="true" type="email" name="email" id="control_EMAIL" placeholder="Email address" />
+    <!-- Firstname -->
+    <div class="input-group">
+      <input type="text" name="name" class="form-control" required="true" placeholder="Name">
+      <!-- Firstname -->
+      <span class="input-group-btn">
+      <input class="btn btn-success btn-color" type="submit" value="Subscribe">
+      </span> </div>
+  </div>
+  <!-- Attribution -->
+  <input type="hidden" name="source" value="site" />
+  <input type="hidden" name="page" value="home" />
+</form>
+<!-- Email Validation Message -->
+<div class="#"><span id="success" style="display: none; visibility:none; ">
+  <p><strong>Thank you for subscribing!</strong></p>
+  </span> <span id="error" style="display: none; visibility:none; ">
+  <p><strong>Please enter a valid email address!</strong></p>
+  </span></div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed --> <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>
